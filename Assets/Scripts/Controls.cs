@@ -38,7 +38,7 @@ public class Controls : MonoBehaviour
             transform.position = new Vector3(transform.position.x + walkingSpeed * Time.deltaTime, transform.position.y, transform.position.z);
         }
 
-        if((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.S)) && isOnGround)
+        if(Input.GetKeyDown(KeyCode.S) && isOnGround)
         {
             gameObject.GetComponent<Rigidbody2D>().velocity += new Vector2(0, jumpSpeed);
         }
