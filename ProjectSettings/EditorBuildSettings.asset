@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: c14236b00e1db468da4d0792d227ef27
+  - enabled: 1
     path: Assets/Scenes/Ground Floor Room 1.unity
     guid: 8b4ac8bd24a2f534bb50f4c9c9a937b4
   - enabled: 1
@@ -14,4 +17,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/First-Floor-Room-Wasi.unity
     guid: ca02dc1e7a19143669c7e9bcc65d72a7
+  - enabled: 1
+    path: Assets/Scenes/YouWon.unity
+    guid: 10925adf2795b40058fef12f5d9ca074
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: fd43152caee9a470a8d09cc10565c4ee
   m_configObjects: {}

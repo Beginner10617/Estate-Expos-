@@ -1,22 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class Knife : MonoBehaviour
 {
+    int currentSceneIndex;
     SpriteRenderer sprite;
     bool removing = false;
     void Start()
     {
         sprite = GetComponent<SpriteRenderer>();
+        currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
     }
 
     void OnCollisionEnter2D(Collision2D other)
     {
         if(other.gameObject.CompareTag("Player"))
         {
-            //GameOver
             Debug.Log("GameOver");
+            SceneManager.LoadScene(currentSceneIndex + 2);
         }
         if(!other.gameObject.CompareTag("Respawn"))
         {
