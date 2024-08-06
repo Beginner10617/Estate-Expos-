@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 public class Door : MonoBehaviour, Interactable
 {
     public GameObject codeDisplayPanel;
@@ -12,13 +12,14 @@ public class Door : MonoBehaviour, Interactable
     public TMP_InputField codeInputField; // InputField for entering the code
     public Button submitButton; // Button to submit the code
     public Text messageText; // Text component to display messages
+    int currentSceneIndex;
 
     void Start()
     {
         // Ensure the code input panel and message text are hidden at the start
         codeInputPanel.SetActive(false);
         messageText.gameObject.SetActive(false);
-
+        currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         // Add listener to the submit button
         submitButton.onClick.AddListener(CheckCode);
     }
@@ -47,6 +48,8 @@ public class Door : MonoBehaviour, Interactable
         {
             // Display the success message
             StartCoroutine(DisplayMessage("Level Complete!", 5f));
+            SceneManager.LoadScene(currentSceneIndex + 1);
+
         }
         else
         {

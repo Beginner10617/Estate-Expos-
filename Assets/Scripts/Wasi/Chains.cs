@@ -10,6 +10,8 @@ public class Chains : MonoBehaviour
     GameObject player;
     public int mode;
     public GameObject floor;
+    public GameObject Door;
+    public GameObject Exit;
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -33,7 +35,7 @@ public class Chains : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(inRange&&Input.GetKeyDown(KeyCode.Space))
+        if(inRange&&(Input.GetKeyDown(KeyCode.Space)||(Input.GetKeyDown(KeyCode.S)&&holding)))
         {
             holding = !holding;
             Debug.Log(holding);
@@ -50,9 +52,11 @@ public class Chains : MonoBehaviour
             {
                 Destroy(floor);
             }
-            else if(mode == 3)
+            else if(mode == 1)
             {
                 Debug.Log("Exit");
+                Door.SetActive(false);
+                Exit.SetActive(true);
             }
         }
         
